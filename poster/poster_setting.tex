@@ -1,0 +1,204 @@
+% Definition of some variables and colors
+\setlength{\columnsep}{3cm}% how far from middle line
+\setlength{\columnseprule}{2mm}% width of middle line
+\setlength{\parindent}{0.0cm}
+\setlength{\columnsep}{3cm}
+%
+\setlength{\headheight}{0cm}
+\setlength{\headsep}{0cm}
+\setlength{\topmargin}{-2.9cm}
+\setlength{\oddsidemargin}{-2.55cm}
+\setlength{\paperwidth}{120cm}
+\setlength{\paperheight}{91.51cm}
+\setlength{\textwidth}{120cm}
+\setlength{\textheight}{91.51cm}
+\setlength{\tausch}{\paperwidth}
+\setlength{\paperwidth}{\paperheight}
+\setlength{\paperheight}{\tausch}
+\setlength{\tausch}{\textwidth}
+\setlength{\textwidth}{\textheight}
+\setlength{\textheight}{\tausch}
+%
+%\newrgbcolor{lightblue}{0. 0. 0.80}
+%\newrgbcolor{lightred}{0.80 0. 0.}
+%\newrgbcolor{lightgreen}{0. 0.80 0.}
+\newrgbcolor{lightblue}{0.8 0.8 1.0}
+\newrgbcolor{lightred}{1.0 0.8 0.8}
+\newrgbcolor{lightgreen}{0.8 1.0 0.8}
+\newrgbcolor{white}{1. 1. 1.}
+\newrgbcolor{whiteblue}{.80 .80 1.}
+\newrgbcolor{darkblue}{.0 .0 .25}
+%\newrgbcolor{darkred}{.5 .0 .1}
+\newrgbcolor{darkred}{.8 .0 .1}
+\newrgbcolor{darkyellow}{1. 1. .5}
+\newrgbcolor{whitegreen}{.75 .90 .75}
+\newrgbcolor{greenblack}{.0 .2 .0}
+\newrgbcolor{darkgreen}{.0 .5 .0}
+\newrgbcolor{whitegray}{.75 .75 .75}
+
+% Background
+\newcommand{\background}[3]{
+  \newrgbcolor{cgradbegin}{#1}
+  \newrgbcolor{cgradend}{#2}
+  \psframe[fillstyle=gradient,gradend=cgradend,
+  gradbegin=cgradbegin,gradmidpoint=#3](0.,0.)(1.\textwidth,-1.\textheight)
+}
+
+% Poster
+\newenvironment{poster}{
+  \begin{center}
+  \begin{minipage}[c]{0.95\textwidth}
+}{
+  \end{minipage} 
+  \end{center}
+}
+
+% pcolumn
+\newenvironment{pcolumn}[1]{
+  \begin{minipage}{#1\textwidth}
+  \begin{center}
+}{
+  \end{center}
+  \end{minipage}
+}
+
+% pbox
+\newrgbcolor{lcolor}{0. 0. 0.80}
+\newrgbcolor{gcolor1}{1. 1. 1.}
+\newrgbcolor{gcolor2}{.80 .80 1.}
+\newcommand{\pbox}[4]{
+\psshadowbox[#3]{
+\begin{minipage}[t][#2][t]{#1}
+#4
+\end{minipage}
+}}
+\newcommand{\ppbox}[4]{
+\psframebox[#3]{
+\begin{minipage}[t][#2][t]{#1}
+#4
+\end{minipage}
+}}
+
+% mytitle
+\newcommand{\mytitle}[1]{
+\begin{center}
+\ppbox{0.91\columnwidth}{}
+%\ppbox{0.85\columnwidth}{}
+{linewidth=0mm,framearc=0.0,linecolor=lightblue,
+linestyle=none,
+fillstyle=gradient,gradangle=90,gradbegin=white,
+gradend=whitegray,
+%gradend=whitegreen,
+gradmidpoint=0.0,framesep=.25em}
+{\begin{center}\huge%
+\color{darkblue}
+%\color{darkgreen}
+#1
+\end{center}}
+\end{center}
+\vspace{.5cm}
+}
+
+% mysubtitle
+\newcommand{\mysubtitle}[1]{
+\vspace{0.5cm}
+%\begin{center}
+{\hspace{30pt}\color{darkblue}
+%{\hspace{30pt}\color{darkred}
+%{\hspace{90pt}\color{darkred}
+\Large\raisebox{.1em}{$\blacksquare$}
+#1
+}\\
+}
+%\newcommand{\mysubtitle}[1]{
+%\vspace{0.5cm}
+%\begin{center}\color{darkred}
+%\Large\raisebox{.1em}{$\blacksquare$}
+%#1
+%\end{center}
+%\vspace{0.25cm}
+%}
+
+% myfig
+%----
+% \myfig - replacement for \figure
+% necessary, since in multicol-environment 
+% \figure won't work
+\newcommand{\myfig}[3][0]{
+\begin{center}
+  \vspace{1.5cm}
+  \includegraphics[width=#3\hsize,angle=#1]{#2}
+  \nobreak\medskip
+\end{center}}
+
+% mycaption
+%----
+% \mycaption - replacement for \caption
+% necessary, since in multicol-environment \figure and
+% therefore \caption won't work
+\setcounter{figure}{1}
+\newcommand{\mycaption}[1]{
+  \vspace{0.5cm}
+  \begin{quote}
+    {{\sffamily\bfseries Figure} \arabic{figure}: #1}
+  \end{quote}
+  \vspace{1cm}
+  \stepcounter{figure}
+}
+
+% 斜体
+\makeatletter
+\newbox\tmp@X
+\def\slantbox#1#2{{%
+        % 箱#2の大きさと位置は変えずに、箱の中身だけ#1ほど傾ける
+        % #1には角度を度単位で指定するかあるいは「sl」「it」と書く
+        % 「sl」と書くとarctan(1/6)だけ傾く(ほぼ\slの傾き)
+        % 「it」と書くとarctan(1/4)だけ傾く(ほぼ\itの傾き)
+        % 箱の大きさは変わらないので、傾いた分中身が箱の前後にはみ出す
+        % graphicsパッケージ要  #1に角度を指定する場合はeclarith.styも要
+        \setbox\tmp@X\hbox{#2}\edef\tmptok@a{#1}%
+        \def\tmptok@b{sl}\ifx\tmptok@a\tmptok@b% theta=atan(1/6)=9.46232deg
+                \def\@RotDeg{49.7312}\def\sec@Theta{1.01379}%
+                \def\csDif@hTheta{.914112}\def\csSum@hTheta{1.07907}%
+        \else \def\tmptok@b{it}\ifx\tmptok@a\tmptok@b% theta=atan(1/4)=14.0362deg
+                \def\@RotDeg{52.0181}\def\sec@Theta{1.03078}%
+                \def\csDif@hTheta{.870324}\def\csSum@hTheta{1.11469}%
+        \else
+                \Mul{#1}{.5}\@hTheta \Add{45}\@hTheta\@RotDeg
+                \DegRad\@hTheta\@hTheta
+                \Cos\@hTheta\c@hTheta \Sin\@hTheta\s@hTheta
+                \Add\c@hTheta\s@hTheta\csSum@hTheta
+                \Sub\c@hTheta\s@hTheta\csDif@hTheta
+                \Mul\csSum@hTheta\csDif@hTheta\sec@Theta
+                \Div{1}\sec@Theta\sec@Theta
+        \fi\fi
+        \mbox{\rotatebox{-\@RotDeg}{\scalebox{\csDif@hTheta}[\csSum@hTheta]{%
+                \rotatebox{45}{\scalebox{1}[\sec@Theta]{%
+                        \smash{\makebox[0pt][l]{\usebox{\tmp@X}}}%
+                }}%
+        }}\phantom{\usebox{\tmp@X}}}%
+}}
+\def\slbox{\slantbox{sl}}\def\itbox{\slantbox{it}}
+\makeatother
+
+% itemize
+\renewenvironment{itemize}%  
+{%
+   \begin{list}{\parbox{5pt}{$\bullet$}}% 見出し記号・直後の空白を調節
+   {%
+      \setlength{\topsep}{0pt}
+      \setlength{\itemindent}{0pt}
+%      \setlength{\leftmargin}{90pt}% 左のインデント
+      \setlength{\leftmargin}{60pt}% 左のインデント
+%      \setlength{\rightmargin}{50pt}% 右のインデント
+      \setlength{\rightmargin}{0pt}% 右のインデント
+      \setlength{\labelsep}{25pt}% 黒丸と説明文の間
+%      \setlength{\labelwidth}{50pt}% ラベルの幅
+      \setlength{\labelwidth}{0pt}% ラベルの幅
+      \setlength{\itemsep}{0pt}% 項目ごとの改行幅
+      \setlength{\parsep}{0pt}% 段落での改行幅
+      \setlength{\listparindent}{0pt}% 段落での一字下り
+   }
+}{%
+   \end{list}%
+}

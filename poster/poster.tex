@@ -1,0 +1,158 @@
+%#!./compile.sh
+
+\documentclass[portrait,a0b,final,a4resizeable]{a0poster}
+%\documentclass[portrait,a0b,final]{a0poster}
+%----
+% Option "a4resizeable" makes it possible to resize the
+% poster by the command: psresize -pa4 poster.ps poster-a4.ps
+% For final printing, please remove option "a4resizeable" !!
+\usepackage{epsfig}
+\usepackage{multicol}
+%
+% http://konoyonohana.blog.fc2.com/blog-entry-252.html
+\usepackage{adjustbox}
+% placed before pstricks:
+%  https://github.com/tweh/menukeys/issues/14
+%  https://tex.stackexchange.com/questions/219997/error-clipbox-already-defined-when-use-package-adjustbox
+%
+\usepackage{pstricks,pst-grad}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{eclarith}
+%\usepackage{enumitem}
+\usepackage[abs]{overpic}
+\usepackage[pdfusetitle]{hyperref}
+\hypersetup{%
+ pdftitle={
+title
+ },%
+ pdfauthor={
+ },%
+ pdfsubject={},%
+ pdfkeywords={
+ }}
+\mathversion{bold}
+
+% https://tex.stackexchange.com/questions/26637/how-do-you-get-mathbb1-to-work-characteristic-function-of-a-set
+%\usepackage{bbm}
+%\usepackage{bbold}
+
+\input{poster_setting.tex}
+
+%-------- Document
+\begin{document}
+
+% display background line, set top space and font type
+%\background{1. 1. 1.}{1. 1. 1.}{0.5}
+%\vspace*{3cm}
+\vspace*{.5cm}
+\color{darkblue}
+%\sffamily\bfseries\Large
+\sffamily\bfseries\large
+
+\begin{poster}
+
+%-------- Title 
+%\begin{center}
+\hspace*{-41pt}%
+ \begin{pcolumn}{1.0}
+  \ppbox{0.985\textwidth}{}
+   {linewidth=0mm,framearc=0.0,linecolor=white,
+   linestyle=none,
+   framesep=1em}{
+   \centering
+   \begin{minipage}[c][6cm][c]{0.99\textwidth}
+    \begin{center}
+\includegraphics[width=.48\linewidth]{./fig/title/title.eps}%
+    \end{center}
+   \end{minipage}
+  }
+ \end{pcolumn}
+%\end{center}
+%-------- End of Title 
+
+% set space between title and contents
+%\vspace*{3cm}
+\vspace*{.5cm}
+% Multicols-Environment
+\begin{multicols}{2}
+
+%---- Introduction
+\mytitle{Introduction}
+%
+\begin{itemize}
+ \item
+\end{itemize}
+%---- End of Introduction
+
+%---- Motivation
+\mytitle{Motivation}
+%
+\begin{itemize}
+ \item
+\end{itemize}
+%---- End of Motivation
+
+%---- Model and Method
+\mytitle{Method and method}
+%
+\begin{itemize}
+ \item
+\end{itemize}
+%---- End of Model and Method
+
+
+%====================
+\newpage
+%====================
+
+
+%---- Results
+\mytitle{Results}
+
+\mysubtitle{%
+AAA}
+%
+\begin{itemize}
+ \item
+\end{itemize}
+
+\mysubtitle{%
+BBB}
+%
+\begin{itemize}
+ \item
+\end{itemize}
+%---- End of Results
+
+%---- Summary
+\mytitle{Conclusion}
+
+\begin{itemize}
+ \item
+\end{itemize}
+%---- End of Summary
+
+\end{multicols}
+%-------- End of Contents
+
+\end{poster}
+
+\end{document}
+%-------- End of Document
+
+
+\begin{minipage}{\linewidth}%
+\centering%
+\begin{minipage}{.49\linewidth}%
+\centering%
+%\includegraphics[width=\linewidth]{./fig/}%
+\end{minipage}%
+\hfil%
+\begin{minipage}{.49\linewidth}%
+\centering%
+%\includegraphics[width=\linewidth]{./fig/}%
+\end{minipage}%
+\end{minipage}%

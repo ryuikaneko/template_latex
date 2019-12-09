@@ -1,0 +1,20 @@
+%% http://abenori.blogspot.com/2015/07/pdfpages.html
+%% http://konoyonohana.blog.fc2.com/blog-entry-197.html
+
+\documentclass[dvipdfmx]{article}
+\usepackage[paper=a0paper]{geometry}
+\usepackage{pdfpages}
+\thispagestyle{empty}
+\begin{document}
+%
+\includepdf[scale=1.0,nup=3x4,pages=2-13,offset=0 -210,delta=0 70,
+%\includepdf[scale=1.0,nup=4x5,pages=2-,offset=0 -210,delta=0 70,
+%\includepdf[scale=1.0,nup=4x6,pages=2-,offset=-10 -210,delta=0 5,
+pagecommand={%
+\begin{center}
+\vspace*{-.1\textheight}%
+\includegraphics[width=\textwidth]{title.eps}%
+\end{center}
+}
+]{slide.pdf}
+\end{document}
