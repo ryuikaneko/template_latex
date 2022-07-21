@@ -1,0 +1,461 @@
+%#! ./compile.sh
+
+%\documentclass[14pt]{beamer}
+\documentclass[14pt,dvipdfmx]{beamer}
+%\documentclass[14pt,dvipdfmx,draft]{beamer}
+%
+%\usetheme{Singapore}
+\usetheme{default}
+\usefonttheme{professionalfonts}
+\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\kanjifamilydefault}{\gtdefault}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}[infolines theme]
+\setbeamertemplate{footline}[frame number]
+%\setbeamertemplate{frametitle}[default][center]
+\setbeamerfont{title}{size=\large,series=\bfseries}
+\setbeamerfont{author}{size=\large,series=\bfseries}
+\setbeamerfont{institute}{size=\footnotesize,series=\bfseries}
+\setbeamerfont{frametitle}{size=\normalsize,series=\bfseries}
+\mathversion{bold}
+%
+\colorlet{green}{green!60!black}
+\colorlet{darkblue}{blue!60!black}
+\colorlet{darkred}{red!60!black}
+\colorlet{darkorange}{orange!80!black}
+\colorlet{lightred}{red!20!white}
+\colorlet{lightblue}{blue!20!white}
+\colorlet{lightgreen}{green!20!white}
+\useinnertheme{circles}
+\setbeamercolor{title}{fg=black}
+%\setbeamercolor{author}{fg=gray}
+\setbeamercolor{author}{fg=black}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{itemize item}{fg=red}
+\setbeamercolor{itemize subitem}{fg=blue}
+\setbeamercolor{itemize subsubitem}{fg=green}
+%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage{here}
+\usepackage{float}% <- here.sty
+\usepackage{bm}
+
+\usepackage[abs]{overpic}
+\usepackage{appendixnumberbeamer}
+
+% http://konoyonohana.blog.fc2.com/blog-entry-252.html
+%\usepackage{adjustbox}
+
+% Gothic Japanese fonts
+%\renewcommand{\kanjifamilydefault}{\gtdefault}
+
+% http://tex.stackexchange.com/questions/42619/x-mark-to-match-checkmark
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+%\newcommand{\xmark}{\ding{55}}%
+\newcommand{\xmark}{\ding{53}}%
+
+%----------------
+ 
+\setbeamertemplate{frametitle}{%
+\vskip10pt%
+\centering%
+\insertframetitle%   
+\vskip2.5pt%
+{\color{gray}\hrule height 1pt}%
+\par}
+
+%----------------   
+
+\title{%
+\texorpdfstring{%
+\large
+TITLE
+\vskip10pt%
+{\color{gray}\hrule height 1pt}%
+\vskip-20pt%
+}
+{title}
+}
+\author{%
+\texorpdfstring{%
+%\footnotesize
+\small
+NAME
+\\[-\baselineskip]  
+{%
+\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \footnotesize
+ \color{black}
+ \setlength\itemsep{0pt}
+ \setlength\parskip{0pt}
+ \item Motivation
+ \begin{itemize}
+  \footnotesize
+  \color{black}
+  \item ...
+ \end{itemize}
+ \item Model and method
+ \begin{itemize}
+  \footnotesize
+  \color{black}
+  \item ...
+  \item ...
+ \end{itemize}
+ \item Results
+ \begin{itemize}
+  \footnotesize
+  \color{black}
+  \item ...
+ \end{itemize}
+ \item Conclusions
+ \begin{itemize}
+  \footnotesize
+  \color{black}
+  \item ...
+ \end{itemize}
+\end{itemize}
+}
+}
+{NAME}
+}
+\date{}
+
+%----------------   
+
+\begin{document}
+
+%----------------
+
+%% https://tex.stackexchange.com/questions/275713/removing-frame-number-from-title-page-warsaw-theme
+%\begin{frame}
+\begin{frame}[noframenumbering]
+\maketitle
+\end{frame}
+
+%----------------
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+%----------------
+\appendix
+%----------------
+\bgroup   
+\setbeamercolor{background canvas}{bg=white}
+\begin{frame}[plain]{}
+\end{frame}
+\egroup
+%---------------- 
+\bgroup
+\setbeamercolor{background canvas}{bg=white}
+\begin{frame}[plain]{}
+\centering
+Backup slides
+\end{frame}
+\egroup
+%----------------
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+{\setlength{\leftmargini}{12pt}
+\setlength{\leftmarginii}{16pt}
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}}
+\end{center}
+\end{frame}
+
+%----------------
+ 
+\end{document}
+
+
+\section[]{}
+\begin{frame}[containsverbatim,c]{%\small
+TITLE}
+%\vspace{-\baselineskip}
+\begin{center}
+\footnotesize
+%\includegraphics[width=\textwidth]{}%
+\begin{itemize}
+ \item
+ITEM
+ \item
+ITEM
+ \item
+ITEM
+\end{itemize}
+\end{center}
+\end{frame}
